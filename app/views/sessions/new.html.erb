@@ -1,0 +1,13 @@
+<% provide(:title, 'Sign In') %>
+
+<div class="d-flex flex-column justify-content-center center-form">
+  <div class="flex-grow-1 d-flex flex-column justify-content-center align-items-left">
+<p>Sign In</p>
+  <%= form_with(url: signin_path, scope: :session, local:true) do |f| %>
+    <%= f.email_field :email, class: "form-control form-items", placeholder: "Enter your email" %>
+    <%= f.password_field :password, class: "form-control form-items", placeholder: "Enter your password"%>
+    <%= f.submit "Submit", class: "btn btn-secondary" %>
+    <%= link_to "Forgot Password?", new_password_reset_path %>
+  <% end %>
+</div>
+</div>

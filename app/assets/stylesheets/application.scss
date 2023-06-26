@@ -1,0 +1,126 @@
+@import "bootstrap";
+
+$navbar_text_color: #9d9d9d;
+
+.navbar-brand {
+    float: left;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    align-items: center;
+    li {
+        a {
+            color: $navbar_text_color;
+            padding-left: 15px;
+            padding-right: 15px;
+            text-decoration: none
+        }
+        a:hover {
+            color: #000000;
+        }
+    }
+    input {
+        color: $navbar_text_color;
+    }
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.greetings {
+    font-size: x-large;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.project-title {
+    font-weight: bold;
+}
+
+.projects-heading {
+    font-size: large;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.card {
+    margin-bottom: 15px;
+    .project-title {
+        float: left;
+    }
+    .project-actions {
+        float: right;
+    }
+}
+
+.righter {
+    float: right;
+}
+
+.lefter {
+    float: left;
+}
+
+.badge {
+    margin-left: 15px;
+    text-transform: uppercase;
+}
+
+.footer {
+    padding: 10px;
+    .copyright {
+        float: left;
+    }
+    .footerdate {
+        float: right;
+    }
+}
+
+
+.task-wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.landing-page-wrapper {
+    height: 100%;
+    background-image: image-url('background.jpg');
+    padding: 50px;
+    background-size: cover;
+}
+
+.landing-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid green;
+    // height: inherit;
+}
+
+.card-pagination {
+    margin-top: 15px;
+}
+
+.push-to-right {
+    justify-content: right;
+}
+
+.center-form {
+    height: 100%;
+    padding: 50px;
+}
+
+.form-items {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.new-project-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

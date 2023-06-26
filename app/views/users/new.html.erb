@@ -1,0 +1,15 @@
+<% provide(:title, 'Sign Up') %>
+<div class="d-flex flex-column justify-content-center center-form">
+  <div class="flex-grow-1 d-flex flex-column justify-content-center align-items-left">
+    <p>Sign Up</p>
+    <%= form_with(model: @user, local:true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.text_field :name, class:"form-control form-items", placeholder: "Enter your name" %>
+      <%= f.email_field :email, class:"form-control form-items", placeholder: "Enter your email" %>
+      <%= f.password_field :password, class:"form-control form-items", placeholder: "Enter your password" %>
+      <%= f.password_field :password_confirmation, class:"form-control form-items", placeholder: "Confirm your password" %>
+      <%= f.hidden_field :activated, value: @user.activated %>
+      <%= f.submit "Submit", class:"btn btn-secondary" %>
+    <% end %>
+  </div>
+  </div>

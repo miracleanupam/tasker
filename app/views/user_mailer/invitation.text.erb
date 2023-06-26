@@ -1,0 +1,6 @@
+<%= @greeting %>,
+
+You have received an invitation to use our Tasker App. Click below to sign up.
+
+
+<%= edit_invitation_url(@invitation.invite_token, invite_id: @invitation.id, email: @invitee) %>

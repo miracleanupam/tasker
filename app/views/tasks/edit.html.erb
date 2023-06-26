@@ -1,0 +1,10 @@
+<div class="d-flex flex-column justify-content-center center-form">
+  <div class="flex-grow-1 d-flex flex-column justify-content-center align-items-left">
+<p>Edit task</p>
+<%= form_with(model: @task, url: project_task_path, scope: :task, local:true) do |f| %>
+  <%= f.text_field :description, class: "form-control form-items", placeholder: "Task Description" %>
+  <%= f.select :status, options_for_select(Task.statuses.map { |key, value| [key.titleize, key]}), {}, { class: "form-control form-select form-items" } %>
+  <%= f.submit "Submit", class: "btn btn-secondary" %>
+<% end %>
+  </div>
+  </div>

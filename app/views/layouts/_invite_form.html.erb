@@ -1,0 +1,4 @@
+<%= form_with(url: invitations_path, scope: 'invitation', local:true, class: "row") do |f| %>
+  <div class="col-auto"><%= f.email_field :email, class: "form-control", placeholder: "Enter friend's email" %></div>
+  <div class="col-auto"><%= f.submit "Invite", class: "btn btn-outline-secondary" %></div>
+<% end %>

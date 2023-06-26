@@ -1,0 +1,93 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+medical_notes:
+  name: "Medical Notes"
+  user: michael
+
+shabdakosh:
+  name: "Nepali Shabdakosh"
+  user: michael
+
+project_one:
+  name: "project one"
+  user: michael
+
+project_two:
+  name: "project two"
+  user: michael
+
+project_three:
+  name: "project three"
+  user: michael
+
+project_four:
+  name: "project four"
+  user: michael
+
+quiz:
+  name: "The Best Quiz"
+  user: dwight
+
+photo_home:
+  name: "Home"
+  user: dwight
+
+photo_one:
+  name: "Home"
+  user: dwight
+
+photo_two:
+  name: "Home"
+  user: dwight
+
+photo_three:
+  name: "Home"
+  user: dwight
+
+photo_four:
+  name: "Home"
+  user: dwight
+
+streets:
+  name: "Streets of KTM"
+  user: toby
+
+streets_one:
+  name: "ivun chow"
+  user: toby
+
+streets_two:
+  name: "lintaro sam"
+  user: toby
+
+streets_three:
+  name: "void tokyo"
+  user: toby
+
+streets_four:
+  name: "framelines"
+  user: toby
+
+mountains:
+  name: "Nepal ko Himal haru"
+  user: toby
+
+# mountains_one:
+#   name: "Nepal ko Himal haru"
+#   user: toby
+
+# mountains_two:
+#   name: "Nepal ko Himal haru"
+#   user: toby
+
+# mountains_three:
+#   name: "Nepal ko Himal haru"
+#   user: toby
+
+# mountains_four:
+#   name: "Nepal ko Himal haru"
+#   user: toby
+
+# mountains_five:
+#   name: "Nepal ko Himal haru"
+#   user: toby

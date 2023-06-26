@@ -1,0 +1,7 @@
+<ul class="list-group list-group-flush">
+  <% locals[:project].tasks.each { |task| %>
+    <li class="list-group-item"><%= render 'static_pages/task', locals: {project: locals[:project], task: task } %></li>
+  <% } %>
+</ul>
+
+<%= paginate @task_feed, params: { controller: :projects, action: :index } %>

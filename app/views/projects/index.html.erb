@@ -1,0 +1,62 @@
+<%= render 'projects/new_project_form' %>
+<div class="projects-heading">Here are your Project-wise tasks:</div>
+
+<% @project_feed.each { |project| %>
+  <div id="<%= project.id %>" class="card">
+
+    <div class="card-header"><span class="project-title"><%= project.name %> <% if current_user.admin? %> | <%= project.user.name %><% end %></span> <span class="project-actions"><%= link_to "edit", edit_project_path(project) %> <%= link_to "delete", project_path(project), data: { turbo_method: :delete } %></span></div>
+
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <% @tasks_feed_per_project[project.id].each do |tf| %>
+          <li class="list-group-item"><%= render 'tasks/task', locals: {project: project, task: tf} %> </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="card-footer">
+      <div class="card-add-task row">
+
+        <span class="col-2">
+        <%= link_to "Add Task",  new_project_task_path(project, :task), data: { turbo_method: :get } %>
+        </span>
+
+        <span class="col-3">
+          <%= form_with(method: :get, url: projects_path, class: "row", local: true) do |f| %>
+            <span class="col-auto"><%= f.select :"filter_#{project.id}", options_for_select(Task.statuses.map { |key, value| [key.titleize, key]} << ['All', 'all']), {}, { class: "form-control form-select" } %></span>
+            <span class="col-auto"><%= f.submit "Filter", class: "btn btn-secondary" %></span>
+          <% end %>
+        </span>
+
+        <span class="col-5">
+          <%= form_with(method: :get, url: projects_path, class: "row push-to-right", local: true) do |f| %>
+            <span class="col-auto"><%= f.text_field :"search_#{project.id}", class: "form-control" %></span>
+            <span class="col-auto"><%= f.submit "Search", class: "btn btn-secondary" %></span>
+          <% end %>
+        </span>
+
+        <span class="col-2">
+          <%= form_with(method: :get, url: projects_path, class: "row", local: true) do |f| %>
+            <span class="auto-col"><%= f.submit "Clear", class: "btn btn-secondary" %></span>
+          <% end %>
+        </span>
+
+      </div>
+
+
+      <div class="card-pagination">
+        <%= paginate @tasks_feed_per_project[project.id], param_name: :"pagina_#{project.id}" %>
+      </div>
+    </div>
+  </div>
+<% } %>
+
+<div>
+  <%= paginate @project_feed %>
+</div>
+
+
+
+
+
+

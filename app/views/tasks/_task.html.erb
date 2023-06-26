@@ -1,0 +1,4 @@
+<div class="card-text">
+  <span class="lefter"><span class="task-desc"><%= locals[:task].description %></span><span class="<%= get_task_status_class(locals[:task].status) %>"><%= locals[:task].status %></span></span>
+  <span class="righter"><%= link_to "edit", edit_project_task_path(locals[:project], locals[:task]) %> <%= link_to "delete", project_task_path(locals[:project], locals[:task]), data: { turbo_method: :delete } %></span>
+</div>

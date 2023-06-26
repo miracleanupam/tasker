@@ -1,0 +1,106 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+medical_one:
+  description: "Create a landing page"
+  project: medical_notes
+  status: "ongoing"
+
+medical_two:
+  description: "Create authentication system"
+  project: medical_notes
+  status: "to_do"
+
+medical_three:
+  description: "Create lesson notes"
+  project: medical_notes
+  status: "to_do"
+
+shabdakosh_one:
+  description: "Search for data set"
+  project: shabdakosh
+  status: "completed"
+
+shabdakosh_two:
+  description: "Seed the database with data"
+  project: shabdakosh
+  status: "completed"
+
+shabdakosh_three:
+  description: "Implement regular expression search"
+  project: shabdakosh
+  status: "to_do"
+
+quiz_one:
+  description: "Create quizzes"
+  project: quiz
+  status: "to_do"
+
+quiz_two:
+  description: "Implement authentication and authorization"
+  project: quiz
+  status: "to_do"
+    
+quiz_three:
+  description: "Make a scoring feature"
+  project: quiz
+  status: "to_do"
+
+photo_home_one:
+  description: "Select the photos for the series"
+  project: photo_home
+  status: "to_do"
+
+photo_home_two:
+  description: "Organize the sequence of photos"
+  project: photo_home
+  status: "to_do"
+
+photo_home_three:
+  description: "Print the zine"
+  project: photo_home
+  status: "to_do"
+
+streets_one:
+  description: "Prepare the questionnaire for interview"
+  project: streets
+  status: "to_do"
+
+streets_two:
+  description: "Conduct the interview"
+  project: streets
+  status: "to_do"
+
+streets_three:
+  description: "Design magazine layout for INTerviewS."
+  project: streets
+  status: "ongoing"
+
+streets_four:
+  description: "Design magazine layout again"
+  project: streets
+  status: "completed"
+
+streets_five:
+  description: "Design a new magazine layout"
+  project: streets
+  status: "completed"
+
+streets_six:
+  description: "Design magazine layout please"
+  project: streets
+  status: "to_do"
+
+mountains_task_one:
+  description: "Plan a trip to EBC"
+  project: mountains
+  status: "to_do"
+
+mountains_task_two:
+  description: "Make yourself fit for the trip"
+  project: mountains
+  status: "to_do"
+
+mountains_task_three:
+  description: "Buy a landscape lens from Canon"
+  project: mountains
+  status: "to_do"

@@ -1,0 +1,8 @@
+<% unless current_user.nil? %>
+  <% if current_user.admin? %>
+    <p>
+      Invite your friend's to this app?
+    </p>
+    <%= render 'layouts/invite_form' %>
+  <% end %>
+<% end %>
