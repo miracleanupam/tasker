@@ -1,7 +1,7 @@
 class PasswordResetsController < ApplicationController
   before_action :signed_out_user
   before_action :find_user, only: %i[create]
-  before_action :check_password_validity, only: ['edit']
+  before_action :check_password_validity, only: ['update']
 
   def new; end
 
