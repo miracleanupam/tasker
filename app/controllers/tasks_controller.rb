@@ -24,6 +24,7 @@ class TasksController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = 'Something went wrong'
+      render 'new', status: 422
     end
   end
 
@@ -33,6 +34,7 @@ class TasksController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = 'Something went wrong'
+      render 'edit', status: 422
     end
   end
 

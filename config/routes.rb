@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :invitations, only: %i[create edit destroy]
   resources :projects do # , only: [:create, :edit, :destroy]
-    resources :tasks # , only: [:create, :edit, :destroy]
+    resources :tasks, only: %i[new create edit update destroy]
   end
   resources :password_resets, only: %i[new create edit update]
   resources :account_activations, only: %i[new create edit update]

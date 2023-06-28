@@ -10,45 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_20_073147) do
-  create_table "invitations", force: :cascade do |t|
-    t.string "invite_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema[7.0].define(version: 20_230_620_073_147) do
+  create_table 'invitations', force: :cascade do |t|
+    t.string 'invite_digest'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "projects", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_projects_on_user_id"
+  create_table 'projects', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_projects_on_user_id'
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.string "description"
-    t.integer "project_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "status", default: 0
-    t.index ["project_id"], name: "index_tasks_on_project_id"
+  create_table 'tasks', force: :cascade do |t|
+    t.string 'description'
+    t.integer 'project_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'status', default: 0
+    t.index ['project_id'], name: 'index_tasks_on_project_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.boolean "admin", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.string "name"
-    t.string "reset_digest"
-    t.datetime "reset_sent_at"
-    t.string "activation_digest"
-    t.boolean "activated", default: false
-    t.datetime "activated_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email'
+    t.boolean 'admin', default: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'password_digest'
+    t.string 'name'
+    t.string 'reset_digest'
+    t.datetime 'reset_sent_at'
+    t.string 'activation_digest'
+    t.boolean 'activated', default: false
+    t.datetime 'activated_at'
+    t.index ['email'], name: 'index_users_on_email', unique: true
   end
 
-  add_foreign_key "projects", "users"
-  add_foreign_key "tasks", "projects"
+  add_foreign_key 'projects', 'users'
+  add_foreign_key 'tasks', 'projects'
 end

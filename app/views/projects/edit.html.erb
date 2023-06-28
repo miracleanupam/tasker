@@ -1,4 +1,9 @@
-<%= form_with(model: @project, url: project_path, local: true) do |f| %>
-  <%= f.text_field :name, class: "form-control", placeholder: "Enter name" %>
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="d-flex flex-column justify-content-center center-form">
+  <div class="flex-grow-1 d-flex flex-column justify-content-center align-items-left">
+    <p>Edit Project</p>
+    <%= form_with(model: @project, url: project_path, local: true) do |f| %>
+      <%= f.text_field :name, class: "form-control form-items", placeholder: "Enter name" %>
+      <%= f.submit "Submit", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+</div>

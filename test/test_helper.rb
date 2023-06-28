@@ -1,6 +1,6 @@
-ENV["RAILS_ENV"] ||= "test"
-require_relative "../config/environment"
-require "rails/test_help"
+ENV['RAILS_ENV'] ||= 'test'
+require_relative '../config/environment'
+require 'rails/test_help'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
@@ -17,13 +17,12 @@ class ActiveSupport::TestCase
   end
 end
 
-
 class ActionDispatch::IntegrationTest
   def sign_user_in_from_tests(user, password: 'password')
     post signin_path params: {
       session: {
         email: user.email,
-        password: password,
+        password: password
       }
     }
   end

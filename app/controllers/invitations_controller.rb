@@ -9,6 +9,8 @@ class InvitationsController < ApplicationController
       new_invite.save
       new_invite.create_invite_digest
       new_invite.send_invite_email(params[:invitation][:email])
+      flash[:success] = 'Invitation successfully sent'
+      redirect_to root_path
     end
   end
 

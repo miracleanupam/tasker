@@ -6,42 +6,39 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
-User.create!(name: "Anupam Dahal",
-             email: "mail@anupamdahal.com.np",
-             password: "foobar",
-             password_confirmation: "foobar",
+User.create!(name: 'Anupam Dahal',
+             email: 'mail@anupamdahal.com.np',
+             password: 'foobar',
+             password_confirmation: 'foobar',
              admin: true)
 
-User.create!(name: "Example User",
-             email: "example@gmail.com",
-             password: "foobar",
-             password_confirmation: "foobar",
+User.create!(name: 'Example User',
+             email: 'example@gmail.com',
+             password: 'foobar',
+             password_confirmation: 'foobar',
              admin: false)
 
-
-99.times { |n|
+99.times do |n|
   name = Faker::Name.name
-  email = "example-#{n+1}@gmail.com"
+  email = "example-#{n + 1}@gmail.com"
   User.create!(name: name,
                email: email,
-               password: "foobar",
-               password_confirmation: "foobar",
+               password: 'foobar',
+               password_confirmation: 'foobar',
                admin: false)
-}
-
+end
 
 # Projects
 
 users = User.take(5)
 
-users.each { |user|
-  2.times { |n| 
+users.each do |user|
+  2.times do |_n|
     project_name = Faker::Nation.capital_city
     project = user.projects.create(name: project_name)
-    5.times { |nn|
+    5.times do |_nn|
       task_description = Faker::Lorem.sentence(word_count: 10)
       project.tasks.create(description: task_description)
-    }
-  }
-}
+    end
+  end
+end

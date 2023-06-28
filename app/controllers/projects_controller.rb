@@ -3,16 +3,13 @@ class ProjectsController < ApplicationController
   before_action :correct_user, only: %i[update destroy]
   before_action :find_project, only: %i[edit update destroy]
   def index
-    # debugger
     @project_feed = Kaminari.paginate_array(current_user.project_feed).page(params[:page])
     @tasks_feed_per_project = {}
     @project_feed.each do |p|
       tasks_feed_for_project = p.task_feed
       case params[:"filter_#{p.id}"]
       when 'all'
-        puts 'all or nil aayo'
       when nil
-        puts 'nil aayo'
       else
         tasks_feed_for_project = tasks_feed_for_project.where(status: params[:"filter_#{p.id}"])
       end
@@ -38,6 +35,7 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = 'Something went wrong!'
+      # redirect_to root_path
     end
   end
 
@@ -47,6 +45,7 @@ class ProjectsController < ApplicationController
       redirect_to root_url
     else
       flash[:danger] = 'something went wrong'
+      render 'edit', status: 422
     end
   end
 

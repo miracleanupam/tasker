@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @user.create_activation_digest
         @user.send_activation_email
       end
-      flash[:success] = 'Successfully created'
+      flash[:success] = 'Please check your email to activate your account'
       redirect_to root_path
     else
       render 'new', status: 422
