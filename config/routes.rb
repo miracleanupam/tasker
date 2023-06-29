@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'users/new'
   get '/signup', to: 'users#new'
 
   get '/signin', to: 'sessions#new'
@@ -9,9 +7,9 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
-  resources :users
-  resources :invitations, only: %i[create edit destroy]
-  resources :projects do # , only: [:create, :edit, :destroy]
+  resources :users, only: %w[new create]
+  resources :invitations, only: %i[create edit]
+  resources :projects do
     resources :tasks, only: %i[new create edit update destroy]
   end
   resources :password_resets, only: %i[new create edit update]
