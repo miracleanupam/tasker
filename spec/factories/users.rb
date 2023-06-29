@@ -3,7 +3,7 @@ require 'factory_bot'
 FactoryBot.define do
   factory :user do
     name { Faker::TvShows::BojackHorseman.character }
-    email { Faker::Internet.email(domain: 'anupamdahal.com.np') }
+    email { "#{name.gsub(' ', '.')}@hollywood.com" }
     password { 'foobar' }
     password_confirmation { 'foobar' }
     admin { false }

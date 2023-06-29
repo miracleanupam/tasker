@@ -23,7 +23,10 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def new; end
+  def new
+    @project = Project.new
+    @tasks = @project.tasks.build
+  end
 
   def edit; end
 
@@ -66,7 +69,10 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name)
+    params.require(:project).permit(
+      :name,
+      tasks_attributes: %i[description status]
+    )
   end
 
   def signed_in_user

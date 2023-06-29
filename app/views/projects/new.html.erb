@@ -1,4 +1,8 @@
-<%= form_with(url: projects_url, local:true) do |f| %>
-  <%= t.text_field :name, class: "form-control", placeholder: "Enter the name of the project" %>
-  <%= t.submit "Submit", class: "btn btn-secondary" %>
+<%= form_with(model: @project, local:true) do |f| %>
+  <%= f.text_field :name, class: "form-control form-items", placeholder: "Enter the name of the project" %>
+  <%= f.fields_for :tasks do |ff| %>
+    <%= ff.text_field :description, class: "form-control form-items", placeholder: 'What is your task?' %>
+  <% end %>
+  <%= link_to_add_fields "Add Task", f, :tasks %>
+  <%= f.submit "Submit", class: "btn btn-secondary" %>
 <% end %>

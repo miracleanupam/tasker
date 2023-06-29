@@ -1,7 +1,7 @@
 class AccountActivationsController < ApplicationController
   def edit
     @user = User.find_by(email: params[:email])
-    if @user&.authenticated?(params[:id])
+    if @user&.authenticated?("activation", params[:id])
       if @user.activated? && !user_is_signed_in?
         flash[:warning] = 'Already activated, please signin'
         redirect_to signin_path
@@ -11,7 +11,7 @@ class AccountActivationsController < ApplicationController
       else
         @user.activate
         flash[:warning] = 'Successfully activated'
-        redirect_to root_path
+        redirect_to signin_path
       end
     else
       flash[:danger] = 'Something went wrong'

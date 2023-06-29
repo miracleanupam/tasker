@@ -2,3 +2,4 @@
   <div class="col-auto flex-grow-1"><%= f.text_field :name, class: "form-control", placeholder: "Enter the name of a new project" %></div>
   <div class="col-auto"><%= f.submit "Create", class: "btn btn-secondary" %></div>
 <% end %>
+<%= link_to 'Create project with Tasks Instead, opens in new page', new_project_path, class: 'btn btn-secondary form-control' %>

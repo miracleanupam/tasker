@@ -40,21 +40,26 @@ class User < ApplicationRecord
   end
 
   def send_reset_email
-    UserMailer.password_reset(self).deliver
+    UserMailer.password_reset(self).deliver_now
   end
 
   def send_activation_email
-    UserMailer.activation(self).deliver
+    UserMailer.activation(self).deliver_now
   end
 
-  def authenticated?(token)
-    return false if activation_digest.nil? || activation_digest.blank?
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil? || digest.blank?
 
-    BCrypt::Password.new(activation_digest).is_password?(token)
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   def activate
-    update_columns(activated: true, activated_at: Time.zone.now)
+    update_columns(activated: true, activated_at: Time.zone.now, activation_digest: nil)
+  end
+
+  def set_reset_digest_to_nil
+    update_column(:reset_digest, nil)
   end
 
   private

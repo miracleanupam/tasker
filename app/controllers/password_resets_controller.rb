@@ -1,7 +1,8 @@
 class PasswordResetsController < ApplicationController
   before_action :signed_out_user
   before_action :find_user, only: %i[create]
-  before_action :check_password_validity, only: ['update']
+  before_action :check_password_validity, only: %w[update]
+  before_action :check_token_validity, only: %w[edit update]
 
   def new; end
 
@@ -22,6 +23,7 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user.update(user_params)
       @user.update_attribute(:reset_digest, nil)
+      @user.set_reset_digest_to_nil
       flash[:success] = 'Successfully updated the password! Please log in to continue'
       redirect_to signin_path
     else
@@ -42,6 +44,14 @@ class PasswordResetsController < ApplicationController
       @user.errors.add(:password, 'Passwords should match')
       render 'edit', status: 422
     end
+  end
+
+  def check_token_validity
+    @user = User.find_by(email: params[:email])
+    return if @user&.authenticated?('reset', params[:id])
+
+    flash[:danger] = 'Page not found!'
+    redirect_to root_path
   end
 
   def user_params
